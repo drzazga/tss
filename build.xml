@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<!-- ANT BUILD FILE FOR THE TSS PROJECT -->
+<!-- The following targets are expected to be used by users:
+ant tss - to compile Travel Support System to the .jar library
+ant dist - to create the distribution files
+-->
+<!-- set properties for this project -->
+<project name="TSS" default="compile" basedir=".">
+	<description>Travel Support System build file</description>
+	<!-- set global properties for this build -->
+	<property name="java.debug" value="true"/>
+	<property name="java.debuglevel" value="source,lines"/>
+	<property name="java.deprecation" value="false"/>
+	<property name="java.optimize" value="true"/>
+	<property name="java.source" value="1.5"/>
+	<property name="java.target" value="1.5"/>
+	<property file="etc/build.properties"/>
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="bin" value="bin"/>
+	<property name="logs" value="logs"/>
+	<property name="doc" value="doc"/>
+	<property name="dist" value="dist"/>
+	<property name="deploy" value="deploy"/>
+	<property name="etc" value="etc"/>
+	<property name="lib" value="lib"/>
+	<property name="templates" value="templates"/>
+	<property name="ontology" value="ontology"/>
+	<property name="db" value="db"/>
+	<property name="vocab.tool" value="jena.schemagen"/>
+	
+	<property name="jarfile" value="tss-${version}.jar"/>
+	
+	<path id="classpath.tools">
+		<fileset dir="${jena.lib.dir}" includes="*.jar"/>
+	</path>
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp>
+			<format property="BUILD_TIME" pattern="d-MMMM-yyyy HH:mm"/>
+		</tstamp>
+		<!-- Create the directory structure -->
+		<mkdir dir="${doc}"/>
+		<mkdir dir="${deploy}"/>
+		<mkdir dir="${dist}"/>
+		<mkdir dir="${lib}"/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${logs}"/>
+	</target>
+	<path id="classpath">
+		<fileset dir="${jade.lib.dir}" includes="*.jar"/>
+		<fileset dir="${jade.lib.dir}/commons-codec" includes="*.jar"/>
+		<fileset dir="${jastor.lib.dir}" includes="*.jar"/>
+		<fileset dir="${jena.lib.dir}" includes="*.jar"/>
+		<fileset dir="${swt.lib.dir}" includes="*.jar"/>
+	</path>
+	<!--     _______________________________________________
+                               ontology
+         _______________________________________________ -->
+	
+
+<!-- this tracks only for changes in user-modelling ontology -->
+	<target name="check.onto">
+		<uptodate property="onto.notreq" srcFile="${ontology}/user-modelling.owl" targetFile="${src}/ibspan/tss/um/ontology/UserModellingFactory.java"/>
+	</target>
+	<target name="onto" depends="declare-jastor-tasks,check.onto"  unless="onto.notreq" description="builds ontologies">
+		<jastor destdir="${src}" generateListeners="true" generatePropertyCache="true" generateVocublaryOnly="false" useEntireURIForIdentifiers="false" useStrictTypeChecking="true" generateCacheInFactory="true" usePackageNamesForRestrictedRanges="false">
+			<ontology generate="true" path="${ontology}/user-modelling.owl" uri="http://www.ibspan.waw.pl/tss/UserModelling" javaPackage="ibspan.tss.um.ontology"/>
+			<ontology generate="true" path="${ontology}/data-model.owl" uri="http://www.ibspan.waw.pl/tss/DataModel" javaPackage="ibspan.tss.layout.ontology.datamodel"/>
+			<ontology generate="true" path="${ontology}/location.owl" uri="http://www.ibspan.waw.pl/tss/Location" javaPackage="ibspan.tss.domain.ontology.location"/>
+			<ontology generate="true" path="${ontology}/money.owl" uri="http://www.ibspan.waw.pl/tss/Money" javaPackage="ibspan.tss.domain.ontology.money"/>
+			<ontology generate="true" path="${ontology}/restaurant.owl" uri="http://www.ibspan.waw.pl/tss/Restaurant" javaPackage="ibspan.tss.domain.ontology.restaurant"/>
+			<ontology generate="true" path="${db}/templates.owl" uri="http://www.ibspan.waw.pl/tss/db/Templates" javaPackage="ibspan.tss.layout.ontology.templates"/>
+
+		</jastor>
+	</target>
+	<target name="vocab" depends="init,build-restaurant-vocabulary,build-money-vocabulary,build-restaurants-db-vocabulary,build-location-vocabulary,build-history-db-vocabulary,build-stereotypes-db-vocabulary,build-user-modelling-vocabulary,build-users-db-vocabulary,build-templates-db-vocabulary,build-profiles-db-vocabulary,build-statistics-db-vocabulary,build-tmp-profiles-vocabulary"/>
+	<target name="check.build-user-modelling-vocabulary">
+		<uptodate property="build-user-modelling-vocabulary.notreq" srcFile="${ontology}/user-modelling.owl" targetFile="${src}/ibspan/tss/um/vocabulary/UserModellingVocabulary.java"/>
+	</target>
+	<target name="build-user-modelling-vocabulary" depends="check.build-user-modelling-vocabulary" unless="build-user-modelling-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/UserModelling#"/>
+			<arg value="-i"/>
+			<arg value="file:${ontology}/user-modelling.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="UserModellingVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-tmp-profiles-vocabulary">
+		<uptodate property="build-tmp-profiles-vocabulary.notreq" srcFile="${ontology}/tmp-profiles.owl" targetFile="${src}/ibspan/tss/domain/tmp-profilesVocabulary.java"/>
+	</target>
+	<target name="build-tmp-profiles-vocabulary" depends="check.build-tmp-profiles-vocabulary" unless="build-tmp-profiles-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/TmpProfiles#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/tmp-profiles.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="TmpProfilesVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-restaurant-vocabulary">
+		<uptodate property="build-restaurant-vocabulary.notreq" srcFile="${ontology}/restaurant.owl" targetFile="${src}/ibspan/tss/domain/vocabulary/RestaurantVocabulary.java"/>
+	</target>
+	<target name="build-restaurant-vocabulary" depends="check.build-restaurant-vocabulary" unless="build-restaurant-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/Restaurant#"/>
+			<arg value="-i"/>
+			<arg value="file:${ontology}/restaurant.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/domain-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="RestaurantVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-restaurants-db-vocabulary">
+		<uptodate property="build-restaurants-db-vocabulary.notreq" srcFile="${db}/restaurants.owl" targetFile="${src}/ibspan/tss/domain/vocabulary/RestaurantsDBVocabulary.java"/>
+	</target>
+	<target name="build-restaurants-db-vocabulary" depends="check.build-restaurants-db-vocabulary" unless="build-restaurants-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/PolishRestaurants#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/restaurants.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/domain-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="RestaurantsDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-users-db-vocabulary">
+		<uptodate property="build-users-db-vocabulary.notreq" srcFile="${db}/users.owl" targetFile="${src}/ibspan/tss/um/vocabulary/UsersDBVocabulary.java"/>
+	</target>
+	<target name="build-users-db-vocabulary" depends="check.build-users-db-vocabulary" unless="build-users-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/Users#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/users.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="UsersDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-profiles-db-vocabulary">
+		<uptodate property="build-profiles-db-vocabulary.notreq" srcFile="${db}/profiles.owl" targetFile="${src}/ibspan/tss/um/vocabulary/ProfilesDBVocabulary.java"/>
+	</target>
+	<target name="build-profiles-db-vocabulary" depends="check.build-profiles-db-vocabulary" unless="build-profiles-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/Profiles#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/profiles.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="ProfilesDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-templates-db-vocabulary">
+		<uptodate property="build-templates-db-vocabulary.notreq" srcFile="${db}/templates.owl" targetFile="${src}/ibspan/tss/um/vocabulary/TemplatesDBVocabulary.java"/>
+	</target>
+	<target name="build-templates-db-vocabulary" depends="check.build-templates-db-vocabulary" unless="build-templates-db-vocabulary.notreq">
+				<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/Templates#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/templates.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="TemplatesDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-stereotypes-db-vocabulary">
+		<uptodate property="build-stereotypes-db-vocabulary.notreq" srcFile="${db}/stereotypes.owl" targetFile="${src}/ibspan/tss/um/vocabulary/StereotypesDBVocabulary.java"/>
+	</target>
+	<target name="build-stereotypes-db-vocabulary" depends="check.build-stereotypes-db-vocabulary" unless="build-stereotypes-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/Stereotypes#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/stereotypes.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="StereotypesDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-statistics-db-vocabulary">
+		<uptodate property="build-statistics-db-vocabulary.notreq" srcFile="${db}/statistics.owl" targetFile="${src}/ibspan/tss/um/vocabulary/StatisticsDBVocabulary.java"/>
+	</target>
+	<target name="build-statistics-db-vocabulary" depends="check.build-statistics-db-vocabulary" unless="build-statistics-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/Statistics#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/statistics.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="StatisticsDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-history-db-vocabulary">
+		<uptodate property="build-history-db-vocabulary.notreq" srcFile="${db}/history.owl" targetFile="${src}/ibspan/tss/um/vocabulary/HistoryDBVocabulary.java"/>
+	</target>
+	<target name="build-history-db-vocabulary" depends="check.build-history-db-vocabulary" unless="build-history-db-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/db/History#"/>
+			<arg value="-i"/>
+			<arg value="file:${db}/history.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/um-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="HistoryDBVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-money-vocabulary">
+		<uptodate property="build-money-vocabulary.notreq" srcFile="${ontology}/money.owl" targetFile="${src}/ibspan/tss/domain/vocabulary/MoneyVocabulary.java"/>
+	</target>
+	<target name="build-money-vocabulary" depends="check.build-money-vocabulary" unless="build-money-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/Money#"/>
+			<arg value="-i"/>
+			<arg value="file:${ontology}/money.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/domain-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="MoneyVocabulary"/>
+		</java>
+	</target>
+	<target name="check.build-location-vocabulary">
+		<uptodate property="build-location-vocabulary.notreq" srcFile="${ontology}/location.owl" targetFile="${src}/ibspan/tss/domain/vocabulary/LocationVocabulary.java"/>
+	</target>
+	<target name="build-location-vocabulary" depends="check.build-location-vocabulary" unless="build-location-vocabulary.notreq">
+		<java classname="${vocab.tool}" classpathref="classpath.tools" fork="yes">
+			<arg value="-a"/>
+			<arg value="http://www.ibspan.waw.pl/tss/Location#"/>
+			<arg value="-i"/>
+			<arg value="file:${ontology}/location.owl"/>
+			<arg value="-c"/>
+			<arg value="${ontology}/domain-vocabulary-template.rdf"/>
+			<arg value="-n"/>
+			<arg value="LocationVocabulary"/>
+		</java>
+	</target>
+	<!-- jastor configuration -->
+	<path id="jastor.ant.path">
+		<fileset dir="${jastor.lib.dir}" includes="*.jar"/>
+		<fileset dir="${jena.lib.dir}" includes="*.jar"/>
+	</path>
+	<target name="declare-jastor-tasks">
+		<taskdef name="jastor" classpathref="jastor.ant.path" classname="com.ibm.adtech.jastor.ant.JastorTask"/>
+		<taskdef name="ontology" classpathref="jastor.ant.path" classname="com.ibm.adtech.jastor.ant.OntologyElement"/>
+	</target>
+	<!-- END -->
+	<!--     _______________________________________________
+                               compile
+         _______________________________________________ -->
+	<target name="tss" depends="init,onto" description="compile the source">
+		<javac srcdir="${src}" destdir="${build}" classpathref="classpath" nowarn="on" optimize="${javac.optimize}" debug="${javac.debug}" debuglevel="lines,vars,source" deprecation="on" excludes="examples/**">
+		</javac>
+	</target>
+	<!--     ________________________________________________
+                             jar
+         ________________________________________________ -->
+	<target name="lib" depends="tss" description="generate jar archive">
+		<jar jarfile="${lib}/tss.jar">
+			<fileset dir="${build}">
+				<include name="ibspan/tss/**"/>
+			</fileset>
+		</jar>
+	</target>
+	<!--    __________________________________________________
+                            clean
+        __________________________________________________ -->
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} directory tree -->
+		<delete includeEmptyDirs="true">
+			<fileset dir="${build}" excludes="**/*.mf"/>
+		</delete>
+		<!-- clean the doc/api directory -->
+		<delete dir="${doc}/api" includeEmptyDirs="true"/>
+	</target>
+	<!--     _______________________________________________
+                               examples
+         _______________________________________________ -->
+	<target name="examples" depends="lib" description="compile the examples ">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" nowarn="off" optimize="${javac.optimize}" debug="${javac.debug}" deprecation="off" includes="examples/**" classpath="${lib}/e-cap.jar"/>
+	</target>
+	<!--     _______________________________________________
+		                               doc
+		         _______________________________________________ -->
+	<target name="doc">
+		<javadoc author="true" classpathref="classpath" destdir="${doc}/api" doctitle="Agent-based Travel Support System ${version} API Reference" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="ibspan.tss.*" source="1.5" sourcepath="${src}" splitindex="true" use="true" version="true">
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api/"/>
+			<link href="http://jena.sourceforge.net/javadoc/"/>
+			<link href="http://jade.tilab.com/doc/api/"/>
+			<!-- link do dokumentacji e-cap -->
+		</javadoc>
+	</target>
+	<target name="build-src" depends="onto,vocab"/>
+	<target name="compile" depends="build-src">
+		<javac srcdir="${src}" destdir="${build}" debug="${java.debug}" debuglevel="${java.debuglevel}" deprecation="${java.deprecation}" optimize="${java.optimize}" source="${java.source}" target="${java.target}">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	
+	<target name="make-jar" depends="compile">
+		<jar jarfile="${lib}/${jarfile}" basedir="${build}" />
+	</target>
+	<target name="copy-jar" depends="make-jar">
+		<copy file="${lib}/${jarfile}" toDir="${project.jar.dir}" />
+	</target>
+		<target name="init-dist">
+			<mkdir dir="${dist}" />
+	</target>
+	
+	<target name="make-dist" depends="init-dist,make-dist-bin,make-dist-src,make-dist-doc,make-dist-all">
+
+	</target>
+	
+	
+	<target name="make-dist-all" depends="init-dist,make-dist-bin,make-dist-src,make-dist-doc">
+		<jar jarfile="${dist}/tss-${version}-all.zip">
+			<fileset dir="${dist}">
+				<include name="*.zip" />
+				<exclude name="tss-${version}-all.zip" />
+			</fileset>
+		</jar>
+	</target>	
+	
+		<target name="make-dist-src" depends="build-src">
+		<jar jarfile="${dist}/tss-${version}-src.zip">
+			<fileset dir=".">
+				<include name="${src}/**" />
+			</fileset>
+			<fileset dir=".">
+				<include name="${etc}/*" />
+				<include name="${db}/*" />
+				<include name="${bin}/*.bat" />
+				<include name="${bin}/*.url" />				
+				<include name="${ontology}/*" />
+				<include name="${templates}/**" />
+				<include name="build.xml" />
+				<include name="README.txt" />
+				<include name="ChangeLog.txt" />
+				<include name="License.txt" />
+			</fileset>
+		</jar>
+	</target>
+	
+	<target name="make-dist-bin" depends="make-jar">
+		<jar jarfile="${dist}/tss-${version}-bin.zip">
+			<fileset dir=".">
+				<include name="${etc}/*" />
+				<exclude name="${etc}/build.properties" />
+				<include name="${db}/*.owl" />
+				<include name="${bin}/*.bat" />
+				<include name="${bin}/*.url" />				
+				<include name="${lib}/*.jar" />
+				<include name="${logs}/*" />								
+				<include name="${ontology}/*.owl" />
+				<include name="${templates}/**" />
+				<include name="README.txt" />
+				<include name="ChangeLog.txt" />
+				<include name="License.txt" />
+			</fileset>
+		</jar>
+	</target>
+	
+		<target name="make-dist-doc" depends="doc">
+		<jar jarfile="${dist}/tss-${version}-doc.zip">
+			<fileset dir=".">
+				<include name="${doc}/*.pdf" />
+				<include name="${doc}/*.html" />				
+				<include name="${doc}/api/**" />								
+				<include name="${doc}/db/**" />								
+				<include name="${doc}/ontology/**" />								
+				<include name="${doc}/layout/**" />												
+				<include name="${doc}/images/**" />												
+				<include name="README.txt" />
+				<include name="ChangeLog.txt" />
+				<include name="License.txt" />
+			</fileset>
+		</jar>
+	</target>
+</project>

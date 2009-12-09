@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.ibspan.waw.pl/tss/db/Users#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:um="http://www.ibspan.waw.pl/tss/UserModelling#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/db/Users">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling"/>
+  </owl:Ontology>
+  <rdf:Description rdf:about="http://www.ibspan.waw.pl/tss/UserModelling#LastUser">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This User is only for internal use for storing ID of last registered user. 
+Must be present in db model, not schema ontology model.</rdfs:comment>
+  </rdf:Description>
+  <owl:AllDifferent/>
+  <rdf:Description rdf:about="http://www.ibspan.waw.pl/tss/UserModelling#LastEvent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This event is not only for internal use for storing ID of last event. Must 
+    be present in db model, not schema ontology model.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:money="http://www.ibspan.waw.pl/tss/Money#"
+    xmlns="http://www.ibspan.waw.pl/tss/Restaurant#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:location="http://www.ibspan.waw.pl/tss/Location#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/Restaurant">
+  <owl:Ontology rdf:about="">
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Michal Szymczak</dc:creator>
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/Money"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EN</dc:language>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mainly Chefmoz Dining Guide [http://chefmoz.org/]</dc:source>
+    <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chef Moz License: 
+http://chefmoz.org/license.html
+
+No Warranty/Use At Your Risk. 
+
+THE CHEF MOZ AND ANY NETSCAPE TRADEMARKS AND LOGOS CONTAINED WITH THE REQUIRED 
+ATTRIBUTION STATEMENTS ARE MADE AVAILABLE UNDER THIS CHEF MOZ LICENSE AT 
+NO CHARGE. ACCORDINGLY, THE CHEF MOZ AND THE NETSCAPE TRADEMARKS AND LOGOS 
+ARE PROVIDED `AS IS,' WITHOUT WARRANTY OF ANY KIND, INCLUDING WITHOUT 
+LIMITATION THE WARRANTIES THAT THEY ARE MERCHANTABLE, FIT FOR A PARTICULAR 
+PURPOSE OR NON-INFRINGING. YOU ARE SOLELY RESPONSIBLE FOR YOUR USE, 
+DISTRIBUTION, MODIFICATION, REPRODUCTION AND PUBLICATION OF CHEF MOZ AND 
+ANY DERIVATIVE WORKS THEREOF BY YOU AND ANY OF YOUR SUBLICENSEES 
+(COLLECTIVELY, `YOUR CHEF MOZ USE'). THE ENTIRE RISK AS TO YOUR CHEF MOZ 
+USE IS BORNE BY YOU. YOU AGREE TO INDEMNIFY AND HOLD NETSCAPE, ITS 
+SUBSIDIARIES AND AFFILIATES HARMLESS FROM ANY CLAIMS ARISING FROM OR 
+RELATING TO YOUR CHEF MOZ USE. 
+
+Limitation of Liability. 
+
+IN NO EVENT SHALL NETSCAPE, ITS SUBSIDIARIES OR AFFILIATES, OR THE CHEF MOZ 
+CONTRIBUTING EDITORS, BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL OR 
+CONSEQUENTIAL DAMAGES, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF 
+GOODWILL OR ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF 
+ADVISED OF THE POSSIBILITY THEREOF, AND REGARDLESS OF WHETHER ANY CLAIM IS 
+BASED UPON ANY CONTRACT, TORT OR OTHER LEGAL OR EQUITABLE THEORY, RELATING 
+OR ARISING FROM CHEF MOZ, YOUR CHEF MOZ USE OR THIS CHEF MOZ LICENSE 
+AGREEMENT.
+</dc:rights>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinecki, e-mail: maciej.gawinecki@ibspan.waw.pl</dc:creator>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Domain ontology of Restaurant world in Travel Support System.</dc:title>
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Add rdfs:label and rdfs:comment properties to description of classes.</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Domain ontology of Restaurant world in Travel Support System.</rdfs:comment>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006-08-22</dc:date>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ibspan.waw.pl/tss/Restaurant</dc:identifier>
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/Location"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="CuisineCode"/>
+  <owl:Class rdf:ID="DinerReview"/>
+  <owl:Class rdf:ID="RestaurantServiceInfo"/>
+  <owl:Class rdf:ID="AlcoholCode"/>
+  <owl:Class rdf:ID="ParkingCode"/>
+  <owl:Class rdf:ID="FeatureCode"/>
+  <owl:Class rdf:ID="ReservationCode"/>
+  <owl:Class rdf:ID="AccessibilityCode"/>
+  <owl:Class rdf:ID="SmokingCode"/>
+  <owl:Class rdf:ID="DressCode"/>
+  <owl:Class rdf:ID="Restaurant">
+    <rdfs:subClassOf rdf:resource="http://www.ibspan.waw.pl/tss/Location#Location"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RestaurantCategoryCode"/>
+  <owl:ObjectProperty rdf:ID="dress">
+    <rdfs:range rdf:resource="#DressCode"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="indexPoint"/>
+  <owl:ObjectProperty rdf:ID="hasDinerReview">
+    <rdfs:range rdf:resource="#DinerReview"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="restaurantService">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#RestaurantServiceInfo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="cuisine">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#CuisineCode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="reservations">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#ReservationCode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="feature">
+    <rdfs:range rdf:resource="#FeatureCode"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="alcohol">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#AlcoholCode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="attractionCategory"/>
+  <owl:ObjectProperty rdf:ID="parking">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#ParkingCode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="restaurantCategory">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#RestaurantCategoryCode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="breakfastPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="accessibility">
+    <rdfs:range rdf:resource="#AccessibilityCode"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="accepts">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="locationCategory"/>
+  <owl:DatatypeProperty rdf:ID="phone">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="crossStreet">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="country">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hours">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="menuURL">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="accessibilityNotes">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="locationPath">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="fax">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="zip">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="reservationURL">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="deliveryURL">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="parsedHours">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="streetAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="URL">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="city">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="recommendedDishes">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="clientele">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="state">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="neighborhood">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="smoking">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdfs:range rdf:resource="#SmokingCode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="lunchPrice">
+    <rdfs:domain rdf:resource="#Restaurant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="capacity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dinnerPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="largestParty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="#Restaurant"/>
+  </owl:FunctionalProperty>
+  <CuisineCode rdf:ID="CanadianCuisine"/>
+  <CuisineCode rdf:ID="TibetanCuisine"/>
+  <CuisineCode rdf:ID="PacificRimCuisine"/>
+  <FeatureCode rdf:ID="WineList"/>
+  <CuisineCode rdf:ID="PersianCuisine"/>
+  <DressCode rdf:ID="DressyCasualDress"/>
+  <CuisineCode rdf:ID="MediterraneanCuisine"/>
+  <SmokingCode rdf:ID="UnknownSmoking"/>
+  <FeatureCode rdf:ID="PrivateRoomAvailable"/>
+  <ReservationCode rdf:ID="RequiredReservations"/>
+  <AlcoholCode rdf:ID="NoAlcoholServed"/>
+  <ReservationCode rdf:ID="RecommendedReservations"/>
+  <CuisineCode rdf:ID="NorthAmericanCuisine"/>
+  <RestaurantServiceInfo rdf:ID="RoomServiceRestaurantService"/>
+  <RestaurantServiceInfo rdf:ID="FineDiningRestaurantService"/>
+  <CuisineCode rdf:ID="PortugueseCuisine"/>
+  <CuisineCode rdf:ID="KoreanCuisine"/>
+  <FeatureCode rdf:ID="Upscale"/>
+  <CuisineCode rdf:ID="GreekCuisine"/>
+  <CuisineCode rdf:ID="CentralEuropeanCuisine"/>
+  <AlcoholCode rdf:ID="FullBar"/>
+  <RestaurantCategoryCode rdf:ID="AllPurposeRestaurant"/>
+  <RestaurantCategoryCode rdf:ID="CafeteriaRestaurant"/>
+  <ParkingCode rdf:ID="OwnParkingLot"/>
+  <ReservationCode rdf:ID="LargeGroupsOnlyReservations"/>
+  <CuisineCode rdf:ID="DoughnutsCuisine"/>
+  <CuisineCode rdf:ID="SwedishCuisine"/>
+  <FeatureCode rdf:ID="Family"/>
+  <FeatureCode rdf:ID="Outdoor"/>
+  <CuisineCode rdf:ID="SouthernCuisine"/>
+  <CuisineCode rdf:ID="BrazilianCuisine"/>
+  <FeatureCode rdf:ID="Takeout"/>
+  <CuisineCode rdf:ID="FastFoodCuisine"/>
+  <FeatureCode rdf:ID="LargePrintMenu"/>
+  <RestaurantServiceInfo rdf:ID="SpecialMealServicesRestaurantService"/>
+  <CuisineCode rdf:ID="EnglishCuisine"/>
+  <RestaurantServiceInfo rdf:ID="SelfServiceRestaurantService"/>
+  <CuisineCode rdf:ID="BarPubBreweryCuisine"/>
+  <CuisineCode rdf:ID="ScottishCuisine"/>
+  <CuisineCode rdf:ID="MiddleEasternCuisine"/>
+  <CuisineCode rdf:ID="RegionalCuisine"/>
+  <CuisineCode rdf:ID="DinerCuisine"/>
+  <CuisineCode rdf:ID="AfghanCuisine"/>
+  <RestaurantCategoryCode rdf:ID="FineDiningRestaurant"/>
+  <FeatureCode rdf:ID="SenorMenu"/>
+  <CuisineCode rdf:ID="IndianCuisine"/>
+  <SmokingCode rdf:ID="SectionSmoking"/>
+  <CuisineCode rdf:ID="SeychellesCuisine"/>
+  <CuisineCode rdf:ID="EuropeanCuisine"/>
+  <RestaurantCategoryCode rdf:ID="TakeOutRestaurant"/>
+  <CuisineCode rdf:ID="VietnameseCuisine"/>
+  <CuisineCode rdf:ID="SoupCuisine"/>
+  <FeatureCode rdf:ID="KidFriendly"/>
+  <CuisineCode rdf:ID="BurgersCuisine"/>
+  <DressCode rdf:ID="CasualDress"/>
+  <CuisineCode rdf:ID="TrendyCuisine"/>
+  <RestaurantCategoryCode rdf:ID="FamilyRestaurant"/>
+  <CuisineCode rdf:ID="BrasserieCuisine"/>
+  <CuisineCode rdf:ID="CaliforniaCuisine"/>
+  <CuisineCode rdf:ID="ChopeHouseCuisine"/>
+  <CuisineCode rdf:ID="CajunCreoleCuisine"/>
+  <ParkingCode rdf:ID="PayParking"/>
+  <RestaurantServiceInfo rdf:ID="MealsToGoRestaurantService"/>
+  <FeatureCode rdf:ID="Fireplace"/>
+  <CuisineCode rdf:ID="IcecreamParlourCuis"/>
+  <DressCode rdf:ID="UnknownDress"/>
+  <CuisineCode rdf:ID="VegetarianCuisine"/>
+  <FeatureCode rdf:ID="AdultEntertainment"/>
+  <CuisineCode rdf:ID="OrganicHealthyCuisine"/>
+  <CuisineCode rdf:ID="BritishCuisine"/>
+  <CuisineCode rdf:ID="RussianUkrainianCuisine"/>
+  <CuisineCode rdf:ID="DimSumCuisine"/>
+  <ParkingCode rdf:ID="StreetParking"/>
+  <FeatureCode rdf:ID="ExtensiveWineList"/>
+  <CuisineCode rdf:ID="IndonesianCuisine"/>
+  <RestaurantServiceInfo rdf:ID="BuffetRestaurantService"/>
+  <FeatureCode rdf:ID="Conservatory"/>
+  <FeatureCode rdf:ID="FixedPriceMealsAtLunc"/>
+  <FeatureCode rdf:ID="Delivery"/>
+  <CuisineCode rdf:ID="SouthwesternCuisine"/>
+  <CuisineCode rdf:ID="SwissCuisine"/>
+  <RestaurantCategoryCode rdf:ID="KioskRestaurant"/>
+  <FeatureCode rdf:ID="Cafeteria"/>
+  <CuisineCode rdf:ID="RussianCuisine"/>
+  <CuisineCode rdf:ID="ContinentalEuropeanCusine"/>
+  <CuisineCode rdf:ID="CUICuisine"/>
+  <CuisineCode rdf:ID="EasternEuropeanCuisine"/>
+  <CuisineCode rdf:ID="CafeteriaCuisine"/>
+  <RestaurantCategoryCode rdf:ID="CasualRestaurant"/>
+  <FeatureCode rdf:ID="VegetarianMenu"/>
+  <RestaurantServiceInfo rdf:ID="FullServiceRestaurantService"/>
+  <DressCode rdf:ID="FormalRequiredDress"/>
+  <RestaurantCategoryCode rdf:ID="BuffetRestaurant"/>
+  <CuisineCode rdf:ID="JapaneseCuisine"/>
+  <CuisineCode rdf:ID="FinnishCuisine"/>
+  <CuisineCode rdf:ID="PanPacificCuisine"/>
+  <RestaurantServiceInfo rdf:ID="TakeOutRestaurantService"/>
+  <FeatureCode rdf:ID="VeganMenu"/>
+  <CuisineCode rdf:ID="FusionCuisine"/>
+  <FeatureCode rdf:ID="PrivateParties"/>
+  <FeatureCode rdf:ID="CertifiedKosher"/>
+  <CuisineCode rdf:ID="BagelsCuisine"/>
+  <FeatureCode rdf:ID="DinnerBuffet"/>
+  <CuisineCode rdf:ID="GameCuisine"/>
+  <DressCode rdf:ID="FormalDress"/>
+  <CuisineCode rdf:ID="CreoleCuisine"/>
+  <RestaurantServiceInfo rdf:ID="CateringRestaurantService"/>
+  <CuisineCode rdf:ID="NorthAfricanCuisine"/>
+  <RestaurantCategoryCode rdf:ID="BeverageRestaurant"/>
+  <CuisineCode rdf:ID="HotDogsCuisine"/>
+  <ParkingCode rdf:ID="NoLocalParking"/>
+  <FeatureCode rdf:ID="PhoneAheadSeating"/>
+  <CuisineCode rdf:ID="MoroccanCuisine"/>
+  <FeatureCode rdf:ID="OffsiteCatering"/>
+  <CuisineCode rdf:ID="AustrianCuisine"/>
+  <CuisineCode rdf:ID="SteakHousesCuisine"/>
+  <CuisineCode rdf:ID="ScandinavianCuisine"/>
+  <AccessibilityCode rdf:ID="CompletelyAccesible"/>
+  <CuisineCode rdf:ID="SoutheastAsianCuisine"/>
+  <CuisineCode rdf:ID="BelgianCuisine"/>
+  <FeatureCode rdf:ID="Halal"/>
+  <CuisineCode rdf:ID="BakeryCuisine"/>
+  <CuisineCode rdf:ID="SoulFoodCuisine"/>
+  <CuisineCode rdf:ID="TexNexCuisine"/>
+  <CuisineCode rdf:ID="LebaneseCuisine"/>
+  <CuisineCode rdf:ID="CambodgianCuisine"/>
+  <FeatureCode rdf:ID="WineTasting"/>
+  <CuisineCode rdf:ID="JuiceCuisine"/>
+  <CuisineCode rdf:ID="SaharanCuisine"/>
+  <FeatureCode rdf:ID="BreakfastBuffet"/>
+  <CuisineCode rdf:ID="AfricanCuisine"/>
+  <FeatureCode rdf:ID="BeingYourOwnBeer"/>
+  <AccessibilityCode rdf:ID="UnknownAccessible"/>
+  <CuisineCode rdf:ID="FamilyCuisine"/>
+  <CuisineCode rdf:ID="BreakfastBrunchCuisine"/>
+  <CuisineCode rdf:ID="IndigenousCuisine"/>
+  <CuisineCode rdf:ID="LatinAmericanCuisine"/>
+  <FeatureCode rdf:ID="Cafe"/>
+  <SmokingCode rdf:ID="NotPermittedSmoking"/>
+  <RestaurantCategoryCode rdf:ID="UpscaleRestaurant"/>
+  <CuisineCode rdf:ID="JewishCuisine"/>
+  <CuisineCode rdf:ID="DanishCuisine"/>
+  <RestaurantCategoryCode rdf:ID="FastFoodRestaurant"/>
+  <FeatureCode rdf:ID="Brewery"/>
+  <RestaurantServiceInfo rdf:ID="CookedToOrderRestaurantService"/>
+  <CuisineCode rdf:ID="SeafoodCuisine"/>
+  <RestaurantCategoryCode rdf:ID="CafeRestaurant"/>
+  <FeatureCode rdf:ID="Kids"/>
+  <CuisineCode rdf:ID="TunisianCuisine"/>
+  <CuisineCode rdf:ID="FilipinoCuisine"/>
+  <FeatureCode rdf:ID="Winery"/>
+  <FeatureCode rdf:ID="VeganDishes"/>
+  <CuisineCode rdf:ID="RomanianCuisine"/>
+  <CuisineCode rdf:ID="SushiCuisine"/>
+  <FeatureCode rdf:ID="BrailleMenu"/>
+  <CuisineCode rdf:ID="PolynesianCuisine"/>
+  <CuisineCode rdf:ID="SouthAmericanCuisine"/>
+  <CuisineCode rdf:ID="PacificNorthwestCuisine"/>
+  <CuisineCode rdf:ID="PeruvianCuisine"/>
+  <RestaurantServiceInfo rdf:ID="CasualDiningRestaurantService"/>
+  <FeatureCode rdf:ID="Buffet"/>
+  <FeatureCode rdf:ID="TastingMenu"/>
+  <CuisineCode rdf:ID="ModernEuropeanCuisine"/>
+  <SmokingCode rdf:ID="PermittedSmoking"/>
+  <FeatureCode rdf:ID="SaladBar"/>
+  <CuisineCode rdf:ID="ReunionCuisine"/>
+  <AccessibilityCode rdf:ID="PartiallyAccessible"/>
+  <CuisineCode rdf:ID="IrishCuisine"/>
+  <CuisineCode rdf:ID="HamburgerCuisine"/>
+  <CuisineCode rdf:ID="TurkishCuisine"/>
+  <CuisineCode rdf:ID="HawaiianCuisine"/>
+  <FeatureCode rdf:ID="BeerTasting"/>
+  <CuisineCode rdf:ID="TapasCuisine"/>
+  <AlcoholCode rdf:ID="UnknownAlkohol"/>
+  <CuisineCode rdf:ID="FineDiningCuisine"/>
+  <AlcoholCode rdf:ID="WineBeer"/>
+  <ReservationCode rdf:ID="AcceptedReservations"/>
+  <CuisineCode rdf:ID="DessertIceCreamCuisine"/>
+  <CuisineCode rdf:ID="ContemporaryCuisine"/>
+  <CuisineCode rdf:ID="JamaicanCuisine"/>
+  <CuisineCode rdf:ID="BarbecueCuisine"/>
+  <CuisineCode rdf:ID="MalaysianCuisine"/>
+  <FeatureCode rdf:ID="DriveThrough"/>
+  <FeatureCode rdf:ID="FixedPriceMealsAtDinn"/>
+  <CuisineCode rdf:ID="CambodianCuisine"/>
+  <CuisineCode rdf:ID="AsianCuisine"/>
+  <CuisineCode rdf:ID="ChileanCuisine"/>
+  <CuisineCode rdf:ID="ItalianCuisine"/>
+  <CuisineCode rdf:ID="PizzaCuisine"/>
+  <CuisineCode rdf:ID="ThaiCuisine"/>
+  <FeatureCode rdf:ID="Beverage"/>
+  <FeatureCode rdf:ID="Casual"/>
+  <CuisineCode rdf:ID="MongolianCuisine"/>
+  <CuisineCode rdf:ID="PolishCuisine"/>
+  <CuisineCode rdf:ID="BurmeseCuisine"/>
+  <CuisineCode rdf:ID="FishAndChipsCuisine"/>
+  <FeatureCode rdf:ID="LunchBuffet"/>
+  <CuisineCode rdf:ID="EthiopianCuisine"/>
+  <FeatureCode rdf:ID="BeingYourOwnWine"/>
+  <FeatureCode rdf:ID="VegetarianDishes"/>
+  <CuisineCode rdf:ID="BiologicalCuisine"/>
+  <CuisineCode rdf:ID="MexicanCuisine"/>
+  <AccessibilityCode rdf:ID="NotAccessible"/>
+  <FeatureCode rdf:ID="AllPurpose"/>
+  <CuisineCode rdf:ID="IndianPakistaniCuis"/>
+  <CuisineCode rdf:ID="DeliSandwichesCuisine"/>
+  <CuisineCode rdf:ID="TeaHouseCuisine"/>
+  <CuisineCode rdf:ID="SpanishCuisine"/>
+  <FeatureCode rdf:ID="InternetAccess"/>
+  <FeatureCode rdf:ID="FastFood"/>
+  <CuisineCode rdf:ID="BasqueCuisine"/>
+  <CuisineCode rdf:ID="GermanCuisine"/>
+  <ReservationCode rdf:ID="UnknownReseravations"/>
+  <CuisineCode rdf:ID="ChineseCuisine"/>
+  <CuisineCode rdf:ID="AmericanCuisine"/>
+  <CuisineCode rdf:ID="SandwichesCuisine"/>
+  <CuisineCode rdf:ID="SardinianCuisine"/>
+  <CuisineCode rdf:ID="NepaleseCuisine"/>
+  <FeatureCode rdf:ID="LargeGroupsOk"/>
+  <CuisineCode rdf:ID="SudaneseCuisine"/>
+  <CuisineCode rdf:ID="ArmenianCuisine"/>
+  <FeatureCode rdf:ID="EnglishLanguageMenu"/>
+  <CuisineCode rdf:ID="SteaksCuisine"/>
+  <CuisineCode rdf:ID="DutchBelgianCuisine"/>
+  <CuisineCode rdf:ID="InternationalCuisin"/>
+  <FeatureCode rdf:ID="MinorsNotAllowed"/>
+  <CuisineCode rdf:ID="CatalanCuisine"/>
+  <CuisineCode rdf:ID="CaribbeanCuisine"/>
+  <CuisineCode rdf:ID="AustralianCuisine"/>
+  <CuisineCode rdf:ID="ArgentineanCuisine"/>
+  <ParkingCode rdf:ID="PublicTransitAccessible"/>
+  <ReservationCode rdf:ID="NotAcceptedReservations"/>
+  <FeatureCode rdf:ID="Kiosk"/>
+  <ParkingCode rdf:ID="ValetParking"/>
+  <FeatureCode rdf:ID="Entertainment"/>
+  <CuisineCode rdf:ID="HungarianCuisine"/>
+  <CuisineCode rdf:ID="CubanCuisine"/>
+  <FeatureCode rdf:ID="NiceView"/>
+  <CuisineCode rdf:ID="EclecticCuisine"/>
+  <CuisineCode rdf:ID="CafeCoffeeShopCuisine"/>
+  <SmokingCode rdf:ID="OnlyAtBarSmoking"/>
+  <CuisineCode rdf:ID="KosherCuisine"/>
+  <CuisineCode rdf:ID="OtherCuisine"/>
+  <FeatureCode rdf:ID="FineDining"/>
+  <FeatureCode rdf:ID="SundayBrunch"/>
+  <CuisineCode rdf:ID="IsraeliCuisine"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

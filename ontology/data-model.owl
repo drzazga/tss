@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.ibspan.waw.pl/tss/DataModel#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:um="http://www.ibspan.waw.pl/tss/UserModelling#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/DataModel">
+  <owl:Ontology rdf:about="">
+    <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(c) 2006 Maciej Gawinecki</dc:rights>
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl"/>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ibspan.waw.pl/tss/DataModel</dc:identifier>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontology describing layout structure in Agent-based Travel Support System</rdfs:comment>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontology describing layout structure in Agent-based Travel Support System</dc:description>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006-08-27</dc:date>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinekci, e-mail: maciej.gawinecki@ibspan.waw.pl</dc:creator>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Data-model ontology for Agent-based Travel Support System</dc:title>
+  </owl:Ontology>
+  <owl:Class rdf:ID="UserContext"/>
+  <owl:Class rdf:ID="LayoutStructure"/>
+  <owl:Class rdf:ID="LayoutElement"/>
+  <owl:Class rdf:ID="FormLink">
+    <rdfs:comment xml:lang="en">Link used describing action names of web forms. They do not need label defined.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Link"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Link">
+    <rdfs:subClassOf rdf:resource="#LayoutElement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Menu">
+    <rdfs:subClassOf rdf:resource="#LayoutElement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MenuLink">
+    <rdfs:subClassOf rdf:resource="#Link"/>
+  </owl:Class>
+  <owl:Class rdf:ID="InternalLink">
+    <rdfs:subClassOf rdf:resource="#Link"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasLink">
+    <rdfs:range rdf:resource="#Link"/>
+    <rdfs:domain rdf:resource="#Menu"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#LayoutStructure"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMediaType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#UserContext"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasInterfaceHost">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="#UserContext"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSessionID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#UserContext"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasActionName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLabel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Link"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasErrorMessage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#LayoutStructure"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasMessage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#LayoutStructure"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMenu">
+    <rdfs:range rdf:resource="#Menu"/>
+    <rdfs:domain rdf:resource="#LayoutStructure"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInterfacePort">
+    <rdfs:domain rdf:resource="#UserContext"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUserID">
+    <rdfs:domain rdf:resource="#UserContext"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

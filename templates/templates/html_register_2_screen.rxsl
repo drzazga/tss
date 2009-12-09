@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
+
+<!-- authors: Pawel Kaczmarek, Maciej Gawinecki <maciej.gawinecki@ibspan.waw.pl -->
+<xsl:stylesheet version="2.0" 
+	exclude-result-prefixes="rdfs rdf dc lib ex pstcn" 
+	xmlns:lib="http://www.zvon.org/library" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:fn="http://www.w3.org/2005/xpath-functions" 
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:ex="http://example.org/stuff/1.0/" 
+	xmlns:pstcn="http://burningbird.net/postcon/elements/1.0/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dm="http://www.ibspan.waw.pl/tss/DataModel#">
+	
+	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes" 
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+	
+	<xsl:include href="../layout/html_layout.rxsl"/>
+
+	<xsl:template name="main">
+
+		<form action="{$interface-host}:{$interface-port}" method="get">
+
+		<xsl:call-template name="form">
+			<xsl:with-param name="action-name" select="'check-register-2'"/>	     
+        </xsl:call-template>
+
+		<table align="center">
+		<tr>
+			<td align="right">your name: </td>
+			<td><input type="text" name="user-name"/></td>
+		</tr>
+		<tr>
+			<td align="right">suggested login: </td>
+			<td><input type="text" name="login"/></td>
+		</tr>
+		<tr>
+			<td align="right">suggested password: </td>
+			<td><input type="password" name="password"/></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" value="go!"/> <input type="reset" value="reset"/></td>
+		</tr>
+		</table>
+		</form>
+
+	</xsl:template>
+		
+</xsl:stylesheet>

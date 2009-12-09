@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.ibspan.waw.pl/tss/UserModelling#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/UserModelling">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Change name of Measure concept to MeasureType.</owl:versionInfo>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Finish adding rdfs:comments to the ontology.</owl:versionInfo>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Make it more constistent with Messaging ontology (similar names)</owl:versionInfo>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User Modelling ontology for Agent-based Travel Support System</dc:title>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Make the difference between structures and properties, e.g. between UserBehaviour class and hasUserBehaviour concepts.</owl:versionInfo>
+    <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(c) 2006 Maciej Gawinecki</dc:rights>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ibspan.waw.pl/tss/UserModelling</dc:identifier>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User Modelling ontology for Agent-based Travel Support System</rdfs:comment>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinecki, e-mail: maciej.gawinecki@ibspan.waw.pl</dc:creator>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006-08-22</dc:date>
+  </owl:Ontology>
+  <owl:Class rdf:ID="UserBehaviour">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Represents the type of an action the user performed agains the system.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Dress">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Express wearing style of a person.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Ordinal"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UserBehaviourContext">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Represents the context of perfomed user behaviour, such as chosen constrainst in search query or URI address of clicked object.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MeasureSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >"Extends" concept of measure type to sets consisting of values of a given measure type.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MeasureDomain">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes domain (set of possible values) for a given measure type.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Ordinal">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Measure"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ordinal measure "extends" nominal type by possibility of ordering values according to their rank.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Measure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines type of measure for expressing abstract values, that can be mapped to mathematical, especially numeric terms (e.g. by they rank or mapped value).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="IntervalSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Continues finite set with values of Interval measure type.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#MeasureSet"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StereotypeProfile">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Profile"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Profile of a stereotype.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ContextParameter"/>
+  <owl:Class rdf:ID="NominalSet">
+    <rdfs:subClassOf rdf:resource="#MeasureSet"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="contains"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Nominal"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Set containing values of Nominal type measure.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="UserProfile">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Profile of a user.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Profile"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UserProfileData">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes demographic data of single user.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProfileData"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IntervalDomain">
+    <rdfs:subClassOf rdf:resource="#MeasureDomain"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes domain for Interval measure type in terms of finite set.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ExtendedUserBehaviour">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes user behaviour together with its context.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Profession">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Express profession of a person.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Nominal"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Interval">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Interval measure has values that belong to the linear scale and thus we can compute the distance measure directly</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Measure"/>
+    <owl:sameAs>
+      <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer">
+        <owl:sameAs rdf:resource="#Interval"/>
+      </rdf:Description>
+    </owl:sameAs>
+  </owl:Class>
+  <owl:Class rdf:about="#ProfileData">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Demographic data describing single person or single stereotype.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ProfessionSet">
+    <rdfs:subClassOf rdf:resource="#NominalSet"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Nominal">
+    <rdfs:subClassOf rdf:resource="#Measure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Internal measures distinguishes between categories, e.g. between professions (teacher vs. manager). Elements of this type can be equal or not.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="AgeSet">
+    <rdfs:subClassOf rdf:resource="#IntervalSet"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OrdinalSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Set containing values of Ordinal type measure.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#MeasureSet"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Ordinal"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#contains"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Event">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes the way user action is remembered and stored in history database.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="StereotypeProfileData">
+    <rdfs:subClassOf rdf:resource="#ProfileData"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Data of stereotype "extends" data of profile in the same way, as MeasureSet concept "extends" Measure concept.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="EventSession">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gathers a set of Events in single session with authorized (logged in) user.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Profile">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Profile of a user or stereotype.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="StatisticEntry">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes number of events related to the given user(s), who performed given behaviour(s) against given concept(s). If any of mentioned parameters is not pointed out, then this statistics reference events with all possible values of this parameter.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Classification">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Classification of an opinion.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Parameter"/>
+  <owl:Class rdf:ID="User">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Account of a single register user.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RatedResult">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes potential imperatute of interest (rate) for the givenr object.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="OpinionSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Set of person opinions.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Opinion">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines opinion of a person.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Wealth">
+    <rdfs:subClassOf rdf:resource="#Ordinal"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Express wealth of a person.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="WealthSet">
+    <rdfs:subClassOf rdf:resource="#OrdinalSet"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Age">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes age of a person.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Interval"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DressSet">
+    <rdfs:subClassOf rdf:resource="#OrdinalSet"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasWealthSet">
+    <rdfs:domain rdf:resource="#StereotypeProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#WealthSet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasParameter">
+    <rdfs:domain rdf:resource="#UserBehaviourContext"/>
+    <rdfs:range rdf:resource="#ContextParameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProfession">
+    <rdfs:domain rdf:resource="#UserProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Profession"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAgeSet">
+    <rdfs:range rdf:resource="#AgeSet"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#StereotypeProfileData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasClassification">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes, who this opinion has been classified by the learning algorithm.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Opinion"/>
+    <rdfs:range rdf:resource="#Classification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containsOpinion">
+    <rdfs:domain rdf:resource="#OpinionSet"/>
+    <rdfs:range rdf:resource="#Opinion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEvent">
+    <rdfs:range rdf:resource="#Event"/>
+    <rdfs:domain rdf:resource="#EventSession"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Points the event belonging to this session.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasUserBehaviour">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StatisticEntry"/>
+          <owl:Class rdf:about="#ExtendedUserBehaviour"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#UserBehaviour"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Points the type of an action the user performed agains the system.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasStatisticsEntry"/>
+  <owl:ObjectProperty rdf:ID="hasProfessionSet">
+    <rdfs:domain rdf:resource="#StereotypeProfileData"/>
+    <rdfs:range rdf:resource="#ProfessionSet"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#contains">
+    <rdfs:range rdf:resource="#Measure"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#NominalSet"/>
+          <owl:Class rdf:about="#OrdinalSet"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDressSet">
+    <rdfs:domain rdf:resource="#StereotypeProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#DressSet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ofObject">
+    <rdfs:domain rdf:resource="#RatedResult"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLeftBound">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Left bound of a set.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IntervalSet"/>
+          <owl:Class rdf:about="#IntervalDomain"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Interval"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasRank">
+    <rdfs:domain rdf:resource="#Ordinal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rank assigned to Ordinal type variable.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTemperature">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#RatedResult"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasConceptURI">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="#StatisticEntry"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#User"/>
+          <owl:Class rdf:about="#ContextParameter"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="wasBorn">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#UserProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="atNormalizedProbability">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Normalized probabilty of interest in a given concept in relation to interest of population in this concept.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Opinion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasShortMessage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="startedAt">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#EventSession"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes when the session started.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasUserID">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unique ID of a user</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#User"/>
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#StatisticEntry"/>
+          <owl:Class rdf:about="#UserProfile"/>
+          <owl:Class rdf:about="#EventSession"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSessionID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#EventSession"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unique ID of the Session.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCardinality">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCount">
+    <rdfs:domain rdf:resource="#StatisticEntry"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of events following given key parameters.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="mapsLinearValue">
+    <rdfs:domain rdf:resource="#Interval"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maps abstract value to a real number.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasRate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="wasChanged">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >date of last change of the opinions set</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#OpinionSet"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasOpinions">
+    <rdfs:domain rdf:resource="#Profile"/>
+    <rdfs:range rdf:resource="#OpinionSet"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDress">
+    <rdfs:domain rdf:resource="#UserProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Dress"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStereotypeID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#StereotypeProfile"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPassword">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLongMessage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasWealth">
+    <rdfs:domain rdf:resource="#UserProfileData"/>
+    <rdfs:range rdf:resource="#Wealth"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ofResource">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasValue">
+    <rdfs:domain rdf:resource="#ContextParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasQuestionID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStereotypeData">
+    <rdfs:domain rdf:resource="#StereotypeProfile"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#StereotypeProfileData"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasContext">
+    <rdfs:range rdf:resource="#UserBehaviourContext"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Points the context of this user behaviou. References to the 'actionParams' concept from Messaging ontology.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ExtendedUserBehaviour"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="atIndividualProbability">
+    <rdfs:domain rdf:resource="#Opinion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Individual probability of interest in a given concept.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAbout">
+    <rdfs:domain rdf:resource="#Opinion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Concepts being the object of this opinion.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEventID">
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unique ID of the Event.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ofMeasure">
+    <rdfs:domain rdf:resource="#MeasureDomain"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Type of an measure (e.g. ordinal), pointed by URI reference to this type.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="atInferredProbability">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Opinion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inferred probability of interest in a given concept, concluded form dependencies between concepts in domain ontology.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasScenarioActionName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUserProfileData">
+    <rdfs:range rdf:resource="#UserProfileData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#UserProfile"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDomain">
+    <rdfs:range rdf:resource="#MeasureSet"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStaticticsKey">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#StatisticEntry"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="when">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes when the event happened.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasExtendedUserBehaviour">
+    <rdfs:range rdf:resource="#ExtendedUserBehaviour"/>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAge">
+    <rdfs:domain rdf:resource="#UserProfileData"/>
+    <rdfs:range rdf:resource="#Age"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLogin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasRightBound">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Right bound of a set.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#IntervalSet"/>
+          <owl:Class rdf:about="#IntervalDomain"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Interval"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:AllDifferent/>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Wealth rdf:ID="NotRich">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</hasRank>
+      </Wealth>
+      <Wealth rdf:ID="AverageRich">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</hasRank>
+      </Wealth>
+      <Wealth rdf:ID="Rich">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</hasRank>
+      </Wealth>
+      <Wealth rdf:ID="VeryRich">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4</hasRank>
+      </Wealth>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <Profession rdf:ID="UnemployedJobSeeker"/>
+  <UserBehaviour rdf:ID="QueryForRestaurantBehaviour"/>
+  <Classification rdf:ID="Interesting"/>
+  <Dress rdf:ID="NaturalDress">
+    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</hasRank>
+  </Dress>
+  <Dress rdf:ID="SportyDress">
+    <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</hasRank>
+  </Dress>
+  <Age rdf:ID="AgeMax">
+    <mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >120</mapsLinearValue>
+  </Age>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Resource">
+      <rdf:first>
+        <UserBehaviour rdf:ID="ClickForRestaurantDetailsBehaviour"/>
+      </rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:resource="#QueryForRestaurantBehaviour"/>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first>
+                <UserBehaviour rdf:ID="ExitSearchingBehaviour"/>
+              </rdf:first>
+            </rdf:rest>
+            <rdf:first>
+              <UserBehaviour rdf:ID="EntrySearchingBehaviour"/>
+            </rdf:first>
+          </rdf:rest>
+          <rdf:first>
+            <UserBehaviour rdf:ID="RateRestaurantPositiveBehaviour"/>
+          </rdf:first>
+        </rdf:rest>
+      </rdf:rest>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <Profession rdf:ID="ScientistTeacher"/>
+  <Classification rdf:ID="NotClassified"/>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Classification rdf:about="#Interesting"/>
+      <Classification rdf:ID="NotInteresting"/>
+      <Classification rdf:about="#NotClassified"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Dress rdf:about="#SportyDress"/>
+      <Dress rdf:about="#NaturalDress"/>
+      <Dress rdf:ID="ElegantDress">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</hasRank>
+      </Dress>
+      <Dress rdf:ID="OtherDress">
+        <hasRank rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >4</hasRank>
+      </Dress>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <Profession rdf:ID="StudentPupil"/>
+      <Profession rdf:ID="PensionerAnnuitant"/>
+      <Profession rdf:about="#ScientistTeacher"/>
+      <Profession rdf:about="#UnemployedJobSeeker"/>
+      <Profession rdf:ID="Handworker"/>
+      <Profession rdf:ID="AdvertisingMarketingWorker"/>
+      <Profession rdf:ID="ServicesTradeWorker"/>
+      <Profession rdf:ID="SpecialistFreeLancer"/>
+      <Profession rdf:ID="ManagerDirector"/>
+      <Profession rdf:ID="OtherProfession"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <User rdf:ID="LastUser">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This User is only for internal use for storing ID of last registered user.</rdfs:comment>
+  </User>
+  <Age rdf:ID="AgeMin">
+    <mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >1</mapsLinearValue>
+  </Age>
+  <ContextParameter rdf:ID="TargetURI">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >targetURI</hasName>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines parameter to point object of user action / behaviour, such a ClickForRestaurantDetailsBehaviour.</rdfs:comment>
+  </ContextParameter>
+  <Event rdf:ID="LastEvent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This event is not only for internal use for storing ID of last event.</rdfs:comment>
+  </Event>
+  <IntervalDomain rdf:ID="AgeDomain">
+    <hasLeftBound rdf:resource="#AgeMin"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Describes possible values for Age concept.</rdfs:comment>
+    <hasRightBound rdf:resource="#AgeMax"/>
+    <ofMeasure rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/UserModelling#Age</ofMeasure>
+  </IntervalDomain>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

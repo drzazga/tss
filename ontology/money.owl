@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.ibspan.waw.pl/tss/Money#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/Money">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Domain ontology of Money concept world in Travel Support System.</rdfs:comment>
+    <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(c) 2006 Maciej Gawinecki</dc:rights>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ibspan.waw.pl/tss/Money</dc:identifier>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006-08-22</dc:date>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinecki, e-mail: maciej.gawinecki@ibspan.waw.pl</dc:creator>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Domain ontology of Money concept world in Travel Support System.</dc:title>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: </owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="FuzzyPriceCode"/>
+  <owl:Class rdf:ID="MeanOfPayment"/>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </rdf:Description>
+  <MeanOfPayment rdf:ID="BankCheck"/>
+  <MeanOfPayment rdf:ID="PersonalCheck"/>
+  <MeanOfPayment rdf:ID="DebitCard"/>
+  <MeanOfPayment rdf:ID="DiscoverCard"/>
+  <MeanOfPayment rdf:ID="AmericanExpressCard"/>
+  <MeanOfPayment rdf:ID="EnRouteCard"/>
+  <MeanOfPayment rdf:ID="Cash"/>
+  <MeanOfPayment rdf:ID="PrePay"/>
+  <FuzzyPriceCode rdf:ID="Expensive"/>
+  <MeanOfPayment rdf:ID="BusinessAccount"/>
+  <MeanOfPayment rdf:ID="ChargeCard"/>
+  <MeanOfPayment rdf:ID="CarteBlancheCard"/>
+  <FuzzyPriceCode rdf:ID="Price"/>
+  <MeanOfPayment rdf:ID="MasterCardEuroCard"/>
+  <MeanOfPayment rdf:ID="VisaCard"/>
+  <MeanOfPayment rdf:ID="BusinessCheck"/>
+  <FuzzyPriceCode rdf:ID="VeryExpensive"/>
+  <MeanOfPayment rdf:ID="DinersClubCard"/>
+  <MeanOfPayment rdf:ID="GiftCertificates"/>
+  <FuzzyPriceCode rdf:ID="VeryCheap"/>
+  <MeanOfPayment rdf:ID="CentralBill"/>
+  <MeanOfPayment rdf:ID="Voucher"/>
+  <FuzzyPriceCode rdf:ID="Inexpensive"/>
+  <MeanOfPayment rdf:ID="DirectBill"/>
+  <MeanOfPayment rdf:ID="Redemption"/>
+  <MeanOfPayment rdf:ID="Barter"/>
+  <FuzzyPriceCode rdf:ID="Moderate"/>
+  <MeanOfPayment rdf:ID="Coupon"/>
+  <MeanOfPayment rdf:ID="CreditCard"/>
+  <MeanOfPayment rdf:ID="MoneyOrder"/>
+  <MeanOfPayment rdf:ID="BankCard"/>
+  <MeanOfPayment rdf:ID="Deposit"/>
+  <MeanOfPayment rdf:ID="JCBCard"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

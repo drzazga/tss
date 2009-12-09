@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:jade="http://jade.cselt.it/beangenerator#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.ibspan.waw.pl/tss/db/History#"
+    xmlns:p1="http://www.ibspan.waw.pl/tss/UserModelling#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/db/History">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling"/>
+  </owl:Ontology>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

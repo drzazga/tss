@@ -1,0 +1,1061 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.ibspan.waw.pl/tss/db/Stereotypes#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:um="http://www.ibspan.waw.pl/tss/UserModelling#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/db/Stereotypes">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment xml:lang="en">Stereotypes of users of Agent-based Travel Support System</rdfs:comment>
+    <dc:rights rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(c) 2006 Maciej Gawinecki</dc:rights>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2006-08-22</dc:date>
+    <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mateusz Kruszyk</dc:contributor>
+    <dc:relation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >See Maciej Gawinecki, Mateusz Kruszyk, Marcin Paprzycki (2005) Ontology-based Stereotyping in a Travel Support System. In: Proceedings of the XXI Fall Meeting of Polish Information Processing Society , PTI Press, 73-85</dc:relation>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >See Maciej Gawinecki, Mateusz Kruszyk, Marcin Paprzycki (2005) Ontology-based Stereotyping in a Travel Support System. In: Proceedings of the XXI Fall Meeting of Polish Information Processing Society , PTI Press, 73-85</dc:source>
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling"/>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ibspan.waw.pl/tss/db/Stereotypes</dc:identifier>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stereotypes of users of Agent-based Travel Support System</dc:title>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinecki, e-mail: maciej.gawinecki@ibspan.waw.pl</dc:creator>
+  </owl:Ontology>
+  <um:Opinion rdf:ID="SnobOpinionAboutChargeCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#ChargeCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="YoungsterOpinionAboutKiosk">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#Kiosk</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutHotDogsCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#HotDogsCuisine</um:isAbout>
+  </um:Opinion>
+  <um:StereotypeProfile rdf:ID="Decadent">
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</um:hasStereotypeID>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Decadent is person of age between 20 and 50 years old. In the case of the Decadent, financial status is of no particular importance. They can be students, academicians, or free-lancers. Decadents wear naturally or elegantly. They go to restaurants serving coffee, tea and wines. Places where wine could be tasted (and over-indulged) are of special interest. Fast food is disgusting for the Decadent.</rdfs:comment>
+    <um:hasOpinions>
+      <um:OpinionSet rdf:ID="DecadentOpinions">
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutWineBeer">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#WineBeer</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutExtensiveWineList">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#ExtensiveWineList</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutWineList">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#WineList</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutCafeteriaCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#CafeteriaCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutCafeCoffeeShopCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#CafeCoffeeShopCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutTeaHouseCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#TeaHouseCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutEntertainment">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Entertainment</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutWinery">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Winery</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutWineTasting">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#WineTasting</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutHotDogsCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HotDogsCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutHamburgerCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HamburgerCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutPizzaCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#PizzaCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="DecadentOpinionAboutFastFoodCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#FastFoodCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+      </um:OpinionSet>
+    </um:hasOpinions>
+    <um:hasStereotypeData>
+      <um:StereotypeProfileData rdf:ID="DecadentData">
+        <um:hasWealthSet>
+          <um:WealthSet rdf:ID="DecadentWealth">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotRich"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#AverageRich"/>
+          </um:WealthSet>
+        </um:hasWealthSet>
+        <um:hasDressSet>
+          <um:DressSet rdf:ID="DecadentDress">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NaturalDress"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#ElegantDress"/>
+          </um:DressSet>
+        </um:hasDressSet>
+        <um:hasProfessionSet>
+          <um:ProfessionSet rdf:ID="DecadentProfession">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#UnemployedJobSeeker"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#SpecialistFreeLancer"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#StudentPupil"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#ScientistTeacher"/>
+          </um:ProfessionSet>
+        </um:hasProfessionSet>
+        <um:hasAgeSet>
+          <um:AgeSet rdf:ID="DecadentAge">
+            <um:hasRightBound>
+              <um:Age rdf:ID="DecadentAgeRightBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >50</um:mapsLinearValue>
+              </um:Age>
+            </um:hasRightBound>
+            <um:hasLeftBound>
+              <um:Age rdf:ID="DecadentAgeLefBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >20</um:mapsLinearValue>
+              </um:Age>
+            </um:hasLeftBound>
+          </um:AgeSet>
+        </um:hasAgeSet>
+      </um:StereotypeProfileData>
+    </um:hasStereotypeData>
+  </um:StereotypeProfile>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutSteaksCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#SteaksCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutChineseCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#ChineseCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="YoungSportmanOpinionAboutTeaHouseCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#TeaHouseCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutBeingYourOwnWine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#BeingYourOwnWine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutChargeCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#ChargeCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="StudentOpinionAboutInternetAccess">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#InternetAccess</um:isAbout>
+  </um:Opinion>
+  <um:StereotypeProfile rdf:ID="Student">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Youngster stereotype represents people of age below 15, whose wealth can vary (since it depends on the richness of their parents). No dress style for this stereotype is specified. Youngsters like hamburgers, hot-dogs and pizza (fast-food). Their favorite restaurant must offer menu dedicated to kids, serve meals outdoor and be able to handle large groups. Youngsters usually pay by cash.</rdfs:comment>
+    <um:hasOpinions>
+      <um:OpinionSet rdf:ID="StudentOpinions">
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutBeingYourOwnBeer">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BeingYourOwnBeer</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutChineseCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#ChineseCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutTakeout">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Takeout</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutDoughnutsCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#DoughnutsCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutDelivery">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Delivery</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutWineBeer">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#WineBeer</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutUpscale">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Upscale</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutItalianCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#ItalianCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutBrewery">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Brewery</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutMexicanCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#MexicanCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutSushiCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#SushiCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutTexNexCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#TexNexCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutPizzaCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#PizzaCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutVietnameseCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#VietnameseCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutCash">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#Cash</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutBrasserieCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BrasserieCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutOutdoor">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Outdoor</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutEntertainment">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Entertainment</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutBeerTasting">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BeerTasting</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#StudentOpinionAboutInternetAccess"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="StudentOpinionAboutAsianCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#AsianCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+      </um:OpinionSet>
+    </um:hasOpinions>
+    <um:hasStereotypeData>
+      <um:StereotypeProfileData rdf:ID="StudentData">
+        <um:hasDressSet>
+          <um:DressSet rdf:ID="StudentDress">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NaturalDress"/>
+          </um:DressSet>
+        </um:hasDressSet>
+        <um:hasWealthSet>
+          <um:WealthSet rdf:ID="StudentWealth"/>
+        </um:hasWealthSet>
+        <um:hasAgeSet>
+          <um:AgeSet rdf:ID="StudentAge">
+            <um:hasRightBound>
+              <um:Age rdf:ID="StudentAgeRightBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >26</um:mapsLinearValue>
+              </um:Age>
+            </um:hasRightBound>
+            <um:hasLeftBound>
+              <um:Age rdf:ID="StudentAgeLefBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >18</um:mapsLinearValue>
+              </um:Age>
+            </um:hasLeftBound>
+          </um:AgeSet>
+        </um:hasAgeSet>
+        <um:hasProfessionSet>
+          <um:ProfessionSet rdf:ID="StudentProfession">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#UnemployedJobSeeker"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#StudentPupil"/>
+          </um:ProfessionSet>
+        </um:hasProfessionSet>
+      </um:StereotypeProfileData>
+    </um:hasStereotypeData>
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</um:hasStereotypeID>
+  </um:StereotypeProfile>
+  <um:DressSet rdf:ID="YoungSportmanDress">
+    <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#SportyDress"/>
+  </um:DressSet>
+  <um:Opinion rdf:ID="YoungSportmanOpinionAboutMinorsNotAllowed">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#MinorsNotAllowed</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="YoungsterOpinionAboutLargeGroupsOk">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#LargeGroupsOk</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="YoungSportmanOpinionAboutFastFoodCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#FastFoodCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/">
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stereotypes database</dc:title>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mateusz Kruszyk</dc:creator>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maciej Gawinecki</dc:creator>
+  </rdf:Description>
+  <um:StereotypeProfileData rdf:ID="YoungSportmanData">
+    <um:hasWealthSet>
+      <um:WealthSet rdf:ID="YoungSportmanWealth">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotRich"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#AverageRich"/>
+      </um:WealthSet>
+    </um:hasWealthSet>
+    <um:hasAgeSet>
+      <um:AgeSet rdf:ID="YoungSportmanAge">
+        <um:hasLeftBound>
+          <um:Age rdf:ID="YoungSportmanAgeLefBound">
+            <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >15</um:mapsLinearValue>
+          </um:Age>
+        </um:hasLeftBound>
+        <um:hasRightBound>
+          <um:Age rdf:ID="YoungSportmanAgeRightBound">
+            <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >25</um:mapsLinearValue>
+          </um:Age>
+        </um:hasRightBound>
+      </um:AgeSet>
+    </um:hasAgeSet>
+    <um:hasDressSet rdf:resource="#YoungSportmanDress"/>
+    <um:hasProfessionSet>
+      <um:ProfessionSet rdf:ID="YoungSportmanProfession">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#UnemployedJobSeeker"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#StudentPupil"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Handworker"/>
+      </um:ProfessionSet>
+    </um:hasProfessionSet>
+  </um:StereotypeProfileData>
+  <um:StereotypeProfile rdf:ID="YoungSportman">
+    <um:hasOpinions>
+      <um:OpinionSet rdf:ID="YoungSportmanOpinions">
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutBarPubBreweryCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BarPubBreweryCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutHamburgerCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HamburgerCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutCash">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#Cash</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#YoungSportmanOpinionAboutFastFoodCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutEntertainment">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Entertainment</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutCafeteriaCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#CafeteriaCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutHotDogsCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HotDogsCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutPizzaCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#PizzaCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutFullBar">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#FullBar</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#YoungsterOpinionAboutKiosk"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutCash">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#Cash</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#YoungSportmanOpinionAboutMinorsNotAllowed"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutFastFoodCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#FastFoodCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#YoungsterOpinionAboutLargeGroupsOk"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutKids">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Kids</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutCafeCoffeeShopCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#CafeCoffeeShopCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutBrewery">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Brewery</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutHotDogsCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HotDogsCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutFamily">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Family</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutKidFriendly">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#KidFriendly</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutOutdoor">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#Outdoor</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutHamburgerCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#HamburgerCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutAdultEntertainment">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#AdultEntertainment</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutBeerTasting">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BeerTasting</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungSportmanOpinionAboutWineBeer">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#WineBeer</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="YoungsterOpinionAboutPizzaCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#PizzaCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#YoungSportmanOpinionAboutTeaHouseCuisine"/>
+      </um:OpinionSet>
+    </um:hasOpinions>
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >3</um:hasStereotypeID>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This stereotype describes a person of age between 15 and 25 years, who wears sport-style clothing and is employed as a handworker. It could also be a student or someone unemployed and who therefore cannot afford expensive food. Sportsman likes entertainment (places that offer adult forms of entertainment and music) and eats quickly. Similarly to a Decadent (s)he likes drinking alcohol (mostly beer). Finally, has no problem with places that are not minority-friendly.</rdfs:comment>
+    <um:hasStereotypeData rdf:resource="#YoungSportmanData"/>
+  </um:StereotypeProfile>
+  <um:StereotypeProfileData rdf:ID="SnobData">
+    <um:hasDressSet>
+      <um:DressSet rdf:ID="SnobDress">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#ElegantDress"/>
+      </um:DressSet>
+    </um:hasDressSet>
+    <um:hasAgeSet>
+      <um:AgeSet rdf:ID="SnobAge">
+        <um:hasRightBound>
+          <um:Age rdf:ID="SnobAgeRightBound">
+            <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >40</um:mapsLinearValue>
+          </um:Age>
+        </um:hasRightBound>
+        <um:hasLeftBound>
+          <um:Age rdf:ID="SnobAgeLefBound">
+            <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+            >25</um:mapsLinearValue>
+          </um:Age>
+        </um:hasLeftBound>
+      </um:AgeSet>
+    </um:hasAgeSet>
+    <um:hasProfessionSet>
+      <um:ProfessionSet rdf:ID="SnobProfession">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#ManagerDirector"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#AdvertisingMarketingWorker"/>
+      </um:ProfessionSet>
+    </um:hasProfessionSet>
+    <um:hasWealthSet>
+      <um:WealthSet rdf:ID="SnobWealth">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Rich"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#VeryRich"/>
+      </um:WealthSet>
+    </um:hasWealthSet>
+  </um:StereotypeProfileData>
+  <um:Opinion rdf:ID="SnobOpinionAboutItalianCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#ItalianCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutPizzaCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#PizzaCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutFastFoodCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#FastFoodCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutHotDogsCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#HotDogsCuisine</um:isAbout>
+  </um:Opinion>
+  <um:DressSet rdf:ID="ConservativeDress">
+    <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#ElegantDress"/>
+  </um:DressSet>
+  <um:WealthSet rdf:ID="ConservativeWealth">
+    <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotRich"/>
+    <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Rich"/>
+    <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#AverageRich"/>
+  </um:WealthSet>
+  <um:Opinion rdf:ID="SnobOpinionAboutKidFriendly">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#KidFriendly</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutWineList">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#WineList</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutAmericanExpressCard">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#AmericanExpressCard</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutBrasserieCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#BrasserieCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutHamburgerCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#HamburgerCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutGreekCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#GreekCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutSteakHousesCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#SteakHousesCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutPolishCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#PolishCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="ConservativeOpinionAboutItalianCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#ItalianCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutMasterCardEuroCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#MasterCardEuroCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Age rdf:ID="YoungsterAgeRightBound">
+    <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >15</um:mapsLinearValue>
+  </um:Age>
+  <um:Opinion rdf:ID="SnobOpinionAboutPrivateRoomAvailable">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#PrivateRoomAvailable</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:StereotypeProfile rdf:ID="Conservative">
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >6</um:hasStereotypeID>
+    <um:hasOpinions>
+      <um:OpinionSet rdf:ID="ConservativeOpinions">
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutCash">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#Cash</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutChargeCard"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutPolishCuisine">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#PolishCuisine</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutChineseCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutEuropeanCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#EuropeanCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutHotDogsCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutMasterCardEuroCard">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#MasterCardEuroCard</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutHamburgerCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutBrasserieCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#BrasserieCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutSteakHousesCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutBankCard">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#BankCard</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutInternetAccess">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#InternetAccess</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutEclecticCuisine">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#EclecticCuisine</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutGreekCuisine"/>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutFastFoodCuisine"/>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutItalianCuisine"/>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutPizzaCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutDinersClubCard">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#DinersClubCard</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutSteaksCuisine"/>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutCreditCard">
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Money#CreditCard</um:isAbout>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion>
+          <um:Opinion rdf:ID="ConservativeOpinionAboutFullBar">
+            <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.ibspan.waw.pl/tss/Restaurant#FullBar</um:isAbout>
+            <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+          </um:Opinion>
+        </um:containsOpinion>
+        <um:containsOpinion rdf:resource="#ConservativeOpinionAboutAmericanExpressCard"/>
+      </um:OpinionSet>
+    </um:hasOpinions>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Typically, the Conservative is a mature person (age of 45 or more). He or she is usually a handworker, a pensioner or annuitant. Although the Conservative is not rich, he or she wears elegantly. Conservatives do not like novelty. They refuse to eat meals belonging to foreign cuisines, or fast-food. They also avoid going to restaurants that accept bank cards. They love Polish national cuisine, fatty- meaty meals, combined with large amount of alcohol.</rdfs:comment>
+    <um:hasStereotypeData>
+      <um:StereotypeProfileData rdf:ID="ConservativeData">
+        <um:hasAgeSet>
+          <um:AgeSet rdf:ID="ConservativeAge">
+            <um:hasLeftBound>
+              <um:Age rdf:ID="ConservativeAgeLefBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >45</um:mapsLinearValue>
+              </um:Age>
+            </um:hasLeftBound>
+            <um:hasRightBound>
+              <um:Age rdf:ID="ConservativeAgeRightBound">
+                <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+                >90</um:mapsLinearValue>
+              </um:Age>
+            </um:hasRightBound>
+          </um:AgeSet>
+        </um:hasAgeSet>
+        <um:hasProfessionSet>
+          <um:ProfessionSet rdf:ID="ConservativeProfession">
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#UnemployedJobSeeker"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Handworker"/>
+            <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#PensionerAnnuitant"/>
+          </um:ProfessionSet>
+        </um:hasProfessionSet>
+        <um:hasDressSet rdf:resource="#ConservativeDress"/>
+        <um:hasWealthSet rdf:resource="#ConservativeWealth"/>
+      </um:StereotypeProfileData>
+    </um:hasStereotypeData>
+  </um:StereotypeProfile>
+  <um:Opinion rdf:ID="SnobOpinionAboutCreditCard">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#CreditCard</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutKids">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#Kids</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutInternetAccess">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#InternetAccess</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutAmericanExpressCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#AmericanExpressCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:AgeSet rdf:ID="YoungsterAgeSet">
+    <um:hasRightBound rdf:resource="#YoungsterAgeRightBound"/>
+    <um:hasLeftBound>
+      <um:Age rdf:ID="YoungsterAgeLeftBound">
+        <um:mapsLinearValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >0</um:mapsLinearValue>
+      </um:Age>
+    </um:hasLeftBound>
+  </um:AgeSet>
+  <um:Opinion rdf:ID="SnobOpinionAboutDinersClubCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#DinersClubCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutEuropeanCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#EuropeanCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutHamburgerCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#HamburgerCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:StereotypeProfileData rdf:ID="YoungsterData">
+    <um:hasWealthSet>
+      <um:WealthSet rdf:ID="YoungsterWealth">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#AverageRich"/>
+      </um:WealthSet>
+    </um:hasWealthSet>
+    <um:hasAgeSet rdf:resource="#YoungsterAgeSet"/>
+    <um:hasProfessionSet>
+      <um:ProfessionSet rdf:ID="YoungsterProfession">
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#UnemployedJobSeeker"/>
+        <um:contains rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#StudentPupil"/>
+      </um:ProfessionSet>
+    </um:hasProfessionSet>
+  </um:StereotypeProfileData>
+  <um:OpinionSet rdf:ID="YoungsterOpinions">
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutHamburgerCuisine"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutFamily"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutLargeGroupsOk"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutPizzaCuisine"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutCash"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutHotDogsCuisine"/>
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</um:hasStereotypeID>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutKidFriendly"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutFastFoodCuisine"/>
+    <um:wasChanged rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2006-04-29T00:00:00</um:wasChanged>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutKiosk"/>
+    <um:containsOpinion rdf:resource="#YoungsterOpinionAboutOutdoor"/>
+  </um:OpinionSet>
+  <um:Opinion rdf:ID="SnobOpinionAboutExtensiveWineList">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#ExtensiveWineList</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutBankCard">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Money#BankCard</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutFastFoodCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#FastFoodCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#NotInteresting"/>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutWineTasting">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#WineTasting</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutGreekCuisine">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#GreekCuisine</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutWineBeer">
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#WineBeer</um:isAbout>
+  </um:Opinion>
+  <um:Opinion rdf:ID="SnobOpinionAboutChineseCuisine">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#ChineseCuisine</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:StereotypeProfile rdf:ID="Youngster">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Youngster stereotype represents people of age below 15, whose wealth can vary (since it depends on the richness of their parents). No dress style for this stereotype is specified. Youngsters like hamburgers, hot-dogs and pizza (fast-food). Their favorite restaurant must offer menu dedicated to kids, serve meals outdoor and be able to handle large groups. Youngsters usually pay by cash.</rdfs:comment>
+    <um:hasStereotypeData rdf:resource="#YoungsterData"/>
+    <um:hasOpinions rdf:resource="#YoungsterOpinions"/>
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</um:hasStereotypeID>
+  </um:StereotypeProfile>
+  <um:Opinion rdf:ID="SnobOpinionAboutWinery">
+    <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ibspan.waw.pl/tss/Restaurant#Winery</um:isAbout>
+    <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+  </um:Opinion>
+  <um:OpinionSet rdf:ID="SnobOpinions">
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutBrasserieCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutGreekCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutBankCard"/>
+    <um:containsOpinion>
+      <um:Opinion rdf:ID="SnobOpinionAboutEclecticCuisine">
+        <um:isAbout rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.ibspan.waw.pl/tss/Restaurant#EclecticCuisine</um:isAbout>
+        <um:hasClassification rdf:resource="http://www.ibspan.waw.pl/tss/UserModelling#Interesting"/>
+      </um:Opinion>
+    </um:containsOpinion>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutBeingYourOwnWine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutInternetAccess"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutKidFriendly"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutAmericanExpressCard"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutChineseCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutWineTasting"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutPrivateRoomAvailable"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutWinery"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutFastFoodCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutExtensiveWineList"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutKids"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutItalianCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutWineList"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutHamburgerCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutHotDogsCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutWineBeer"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutPolishCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutCreditCard"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutDinersClubCard"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutMasterCardEuroCard"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutEuropeanCuisine"/>
+    <um:containsOpinion rdf:resource="#SnobOpinionAboutChargeCard"/>
+  </um:OpinionSet>
+  <um:StereotypeProfile rdf:ID="Snob">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Snob, often dubbed as novo-rich has accumulated wealth extremely fast. (S)he is 25-40 years old and very well to do. He or she wears elegantly. The Snob is employed for instance as a business-person, director of start-up company or an advertising agent. Snob abhors fast-food and Polish national cuisine (we consider only Polish users at this moment). However (s)he is eclectic: tries many foreign cuisines: Greek, Italian or Thai. S(he) also likes fashionable, high-value vines. (S)he pays only by a credit or a debit card.</rdfs:comment>
+    <um:hasStereotypeID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >5</um:hasStereotypeID>
+    <um:hasOpinions rdf:resource="#SnobOpinions"/>
+    <um:hasStereotypeData rdf:resource="#StudentData"/>
+  </um:StereotypeProfile>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <um:Opinion rdf:about="#YoungsterOpinionAboutFastFoodCuisine"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutHamburgerCuisine"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutHotDogsCuisine"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutPizzaCuisine"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutCash"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutKidFriendly"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutKids"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutKiosk"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutLargeGroupsOk"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutOutdoor"/>
+      <um:Opinion rdf:about="#YoungsterOpinionAboutFamily"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

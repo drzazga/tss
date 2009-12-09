@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dm="http://www.ibspan.waw.pl/tss/DataModel#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.ibspan.waw.pl/tss/db/Templates#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.ibspan.waw.pl/tss/db/Templates">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ibspan.waw.pl/tss/DataModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:creator>
+  </owl:Ontology>
+  <owl:Class rdf:ID="DummyClass"/>
+  <dm:LayoutStructure rdf:ID="Register2Structure">
+    <dm:hasMenu>
+      <dm:Menu rdf:ID="CommonMenu">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >This is common use menu.</rdfs:comment>
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="Login1">
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >login-1</dm:hasActionName>
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Login</dm:hasLabel>
+          </dm:MenuLink>
+        </dm:hasLink>
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="Welcome">
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >welcome</dm:hasActionName>
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Go home</dm:hasLabel>
+          </dm:MenuLink>
+        </dm:hasLink>
+      </dm:Menu>
+    </dm:hasMenu>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Registration (II)</dm:hasTitle>
+    <rdfs:comment xml:lang="en">Template for the sendond step of user registration scenario.</rdfs:comment>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Please give me the date you will use during logging in to the system</dm:hasText>
+  </dm:LayoutStructure>
+  <dm:LayoutStructure rdf:ID="WelcomeStructure">
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Welcome !</dm:hasTitle>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Where do you want to go today ?</dm:hasText>
+    <dm:hasMenu>
+      <dm:Menu rdf:ID="WelcomeMenu">
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="Register1">
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Register</dm:hasLabel>
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >register-1</dm:hasActionName>
+          </dm:MenuLink>
+        </dm:hasLink>
+        <dm:hasLink rdf:resource="#Login1"/>
+      </dm:Menu>
+    </dm:hasMenu>
+  </dm:LayoutStructure>
+  <dm:LayoutStructure rdf:ID="DetailsStructure">
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Is it the one that you wanted ?</dm:hasText>
+    <dm:hasMenu>
+      <dm:Menu rdf:ID="DetailsMenu">
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="ShowBackedUpResults">
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >show-backed-up-results</dm:hasActionName>
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Back to results</dm:hasLabel>
+          </dm:MenuLink>
+        </dm:hasLink>
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="DefineSearch">
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Find your restaurant!</dm:hasLabel>
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >define-search</dm:hasActionName>
+          </dm:MenuLink>
+        </dm:hasLink>
+        <dm:hasLink>
+          <dm:MenuLink rdf:ID="Logout">
+            <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Logout</dm:hasLabel>
+            <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >logout</dm:hasActionName>
+          </dm:MenuLink>
+        </dm:hasLink>
+      </dm:Menu>
+    </dm:hasMenu>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Details of restaurant</dm:hasTitle>
+  </dm:LayoutStructure>
+  <dm:FormLink rdf:ID="CheckRegister1">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >check-register-1</dm:hasActionName>
+  </dm:FormLink>
+  <dm:LayoutStructure rdf:ID="LogoutStructure">
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Thank you for visiting us.</dm:hasText>
+    <dm:hasMenu rdf:resource="#WelcomeMenu"/>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Logout successful</dm:hasTitle>
+  </dm:LayoutStructure>
+  <dm:InternalLink rdf:ID="Register2">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >register-2</dm:hasActionName>
+  </dm:InternalLink>
+  <dm:FormLink rdf:ID="CheckLogin1">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >check-login-1</dm:hasActionName>
+  </dm:FormLink>
+  <dm:Menu rdf:ID="ResultsMenu">
+    <dm:hasLink rdf:resource="#Logout"/>
+    <dm:hasLink rdf:resource="#DefineSearch"/>
+  </dm:Menu>
+  <rdf:Description rdf:about="http://www.ibspan.waw.pl/tss/DataModel#FormLink">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </rdf:Description>
+  <dm:Menu rdf:ID="LoginSuccessMenu">
+    <dm:hasLink rdf:resource="#Logout"/>
+    <dm:hasLink rdf:resource="#DefineSearch"/>
+  </dm:Menu>
+  <dm:LayoutStructure rdf:ID="Register1Structure">
+    <dm:hasMenu rdf:resource="#CommonMenu"/>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Give us some personal data.</dm:hasText>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Registration (I)</dm:hasTitle>
+  </dm:LayoutStructure>
+  <dm:InternalLink rdf:ID="LoginSuccess">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >login-success</dm:hasActionName>
+  </dm:InternalLink>
+  <dm:LayoutStructure rdf:ID="Login1Structure">
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Login</dm:hasTitle>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enter your login data</dm:hasText>
+    <rdfs:comment xml:lang="en">Template for login screen.</rdfs:comment>
+    <dm:hasMenu>
+      <dm:Menu rdf:ID="LoginMenu">
+        <dm:hasLink rdf:resource="#Register1"/>
+        <dm:hasLink rdf:resource="#Welcome"/>
+      </dm:Menu>
+    </dm:hasMenu>
+  </dm:LayoutStructure>
+  <dm:LayoutStructure rdf:ID="ResultsStructure">
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Recommended restaurants</dm:hasTitle>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >I recommend you the following restaurants:</dm:hasText>
+    <dm:hasMenu rdf:resource="#ResultsMenu"/>
+  </dm:LayoutStructure>
+  <dm:FormLink rdf:ID="Search">
+    <dm:hasLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Search restaurant</dm:hasLabel>
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >search</dm:hasActionName>
+  </dm:FormLink>
+  <dm:Menu rdf:ID="DefineSearchMenu">
+    <dm:hasLink rdf:resource="#Logout"/>
+  </dm:Menu>
+  <dm:InternalLink rdf:ID="ShowFreshResults">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >show-fresh-results</dm:hasActionName>
+  </dm:InternalLink>
+  <dm:MenuLink rdf:ID="ShowDetails">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >show-details</dm:hasActionName>
+  </dm:MenuLink>
+  <dm:FormLink rdf:ID="CheckRegister2">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >check-register-2</dm:hasActionName>
+  </dm:FormLink>
+  <dm:InternalLink rdf:ID="RegisterSuccess">
+    <dm:hasActionName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >register-success</dm:hasActionName>
+  </dm:InternalLink>
+  <dm:LayoutStructure rdf:ID="RegisterSuccessStructure">
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Thank you for registration. Now you can log into the system.</dm:hasText>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Registration Successful</dm:hasTitle>
+    <dm:hasMenu rdf:resource="#CommonMenu"/>
+  </dm:LayoutStructure>
+  <dm:LayoutStructure rdf:ID="LoginSuccessStructure">
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Login successful</dm:hasTitle>
+    <dm:hasMenu rdf:resource="#LoginSuccessMenu"/>
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >What would you like to do now ?</dm:hasText>
+  </dm:LayoutStructure>
+  <dm:LayoutStructure rdf:ID="DefineSearchStructure">
+    <dm:hasText rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Define properties important for your restaurant.</dm:hasText>
+    <dm:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Search constraints</dm:hasTitle>
+    <dm:hasMenu rdf:resource="#DefineSearchMenu"/>
+  </dm:LayoutStructure>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 324)  http://protege.stanford.edu -->

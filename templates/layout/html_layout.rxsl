@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
+
+<!-- authors: Pawel Kaczmarek, Maciej Gawinecki <maciej.gawinecki@ibspan.waw.pl -->
+<xsl:stylesheet version="2.0" 
+	exclude-result-prefixes="rdfs rdf dc lib ex pstcn" 
+	xmlns:lib="http://www.zvon.org/library" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:fn="http://www.w3.org/2005/xpath-functions" 
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:ex="http://example.org/stuff/1.0/" 
+	xmlns:pstcn="http://burningbird.net/postcon/elements/1.0/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dm="http://www.ibspan.waw.pl/tss/DataModel#">
+	
+	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes" 
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+	
+	<!-- Defines the host and port at which the system is accessible -->
+	<xsl:variable name="host" select="'http://localhost'"/>	
+	<xsl:variable name="port" select="'8001'"/>	
+
+	<!-- Defines name of parameter for targets of click-action, according to user modelling ontology -->
+	<!-- um:TargetURI is instance of um:ContextParameter class -->
+	<xsl:variable name="target-uri-key" select="'http://www.ibspan.waw.pl/tss/UserModelling#TargetURI'"/>	
+	
+
+	<xsl:variable name="interface-host" select="/dm:UserContext/dm:hasInterfaceHost"/>
+	<xsl:variable name="user-id" select="/dm:UserContext/dm:hasUserID"/>	
+	<xsl:variable name="interface-port" select="/dm:UserContext/dm:hasInterfacePort"/>
+	<xsl:variable name="session-id" select="/dm:UserContext/dm:hasSessionID"/>
+	<xsl:variable name="media-type" select="/dm:UserContext/dm:hasMediaType"/>
+
+		
+	<xsl:template match="/">
+		<html>
+			<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+				<title>Travel Support System
+				</title>
+				<link href="{$host}:{$port}/layout/style.css" rel="stylesheet"/>
+							
+				
+			</head>
+			<body>				
+					<table cellspacing="20" cellpadding="5" width="790" align="center">
+						<tr>
+							<td>
+								<img src="{$host}:{$port}/img/logo.gif" width="750" height="200" border="0"/>
+						
+					<hr width="790" size="1" noshade="" align="center"/>
+					
+					<xsl:for-each select="/dm:LayoutStructure">
+						
+	
+
+						<xsl:for-each select="dm:hasMenu/*">
+						<span class="menu">
+							<xsl:for-each select="dm:hasLink/*">	
+								[&gt;&gt;<xsl:call-template name="link"/>]&nbsp; 
+							</xsl:for-each>
+						</span>
+						</xsl:for-each>
+						<hr width="790" size="1" noshade="" align="center"/>
+						<span class="title"><xsl:value-of select="dm:hasTitle"/></span>
+										
+						<p class="error-msg"><xsl:value-of select="dm:hasErrorMessage"/></p>
+						
+						<p><xsl:value-of select="dm:hasText"/></p>
+
+						<!-- template with name /main/ should be implemented by external file -->
+						<xsl:call-template name="main"/>
+						
+						<hr width="790" size="1" noshade="" align="center"/>
+						<span class="foot"><center>(c) 2006 Maciej Gawinecki &amp; Pawel Kaczmarek
+						<br/> project site: <a href="http://sourceforge.net/projects/e-travel">sourceforge.net/projects/e-travel</a></center></span>
+
+						<p/><table border="0" bgcolor="#9966ff" cellpadding="3" cellspacing="0" align="center">
+						<tr>
+						<td>
+							<table width="100%" cellpadding="2" cellspacing="0" border="0">
+								<tr align="center">
+								<td><font face="sans-serif, Arial, Helvetica" size="2"
+									color="#FFFFFF">Help build the largest open-content
+									restaurant guide on the web.</font></td></tr>
+								<tr bgcolor="#CCCCCC" align="center">
+								<td><font face="sans-serif, Arial, Helvetica" size="2"> Submit a <a
+									href="http://chefmoz.org/cgi-bin/add.pl?where=$cat">Restaurant</a> /
+									<a href="http://chefmoz.org/cgi-bin/review.pl?ID=$id">Review</a> /
+									<a href="http://chefmoz.org/cgi-bin/link.pl?restID=$id">Link</a> -
+									<a href="http://chefmoz.org/about.html"><b>ChefMoz Project</b></a> -
+									<a href="http://chefmoz.org/cgi-bin/apply.pl?where=$cat">Become
+									an Editor</a> </font>
+								</td></tr>
+							</table>
+						</td>
+						</tr>
+						</table>
+					</xsl:for-each>
+				
+					</td>
+						</tr>
+					</table>
+			</body>
+		</html>
+	</xsl:template>
+	
+	<xsl:template name="link">
+		<xsl:variable name="action-name" select="dm:hasActionName"/>
+		<a href="{$interface-host}:{$interface-port}/?session-id={$session-id}&amp;user-id={$user-id}&amp;media-type={$media-type}&amp;action-name={$action-name}"><xsl:value-of select="dm:hasLabel"/></a>
+			
+	</xsl:template>
+
+	<xsl:template name="form">
+		<xsl:param name="action-name"/>
+
+		<input type="hidden" name="action-name" value="{$action-name}"/>
+		<input type="hidden" name="session-id" value="{$session-id}" />
+		<input type="hidden" name="user-id" value="{$user-id}" />
+		<input type="hidden" name="media-type" value="{$media-type}" />
+					
+	</xsl:template>
+
+	<xsl:template name="adhoc-link">
+		<xsl:param name="action-name"/>
+		<xsl:param name="target-uri"/>
+		<xsl:param name="text"/>
+		<a href="{$interface-host}:{$interface-port}/?session-id={$session-id}&amp;user-id={$user-id}&amp;media-type={$media-type}&amp;action-name={$action-name}&amp;{$target-uri-key}={$target-uri}"><xsl:value-of select="$text"/></a>			
+	</xsl:template>
+	
+</xsl:stylesheet>

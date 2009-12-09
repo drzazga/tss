@@ -1,0 +1,31 @@
+# Agent-based Travel Support System
+# Configuration of LocationMapper
+# Maps base URI names of ontologies into local filenames
+###########################################################
+
+@prefix lm: <http://jena.hpl.hp.com/2004/08/location-mapping#> .
+
+# schemas
+ 
+[]	lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/Restaurant#" ; lm:altName "file:ontology/restaurant.owl" ] .
+[]	lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/Restaurant" ; lm:altName "file:ontology/restaurant.owl" ] .
+[]	lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/UserModelling#" ; lm:altName "file:ontology/user-modelling.owl" ] .
+[]	lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/UserModelling" ; lm:altName "file:ontology/user-modelling.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/Money" ; 	lm:altName "file:ontology/money.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/Location" ;	lm:altName "file:ontology/location.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/DataModel" ;	lm:altName "file:ontology/data-model.owl" ] .
+
+# individuals datasets (most of them usually stored in DB)
+
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/PolishRestaurants#" ;	lm:altName "file:db/restaurants.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/History#" ;	lm:altName "file:db/history.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/Stereotypes#" ;	lm:altName "file:db/stereotypes.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/Users#" ;	lm:altName "file:db/users.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/Profiles#" ;	lm:altName "file:db/profiles.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/Templates#" ;	lm:altName "file:db/templates.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/Statistics#" ;	lm:altName "file:db/statistics.owl" ] .
+[]  lm:mapping [ lm:name "http://www.ibspan.waw.pl/tss/db/TmpProfiles#" ;	lm:altName "file:db/tmp-profiles.owl" ] .
+
+
+
+
